@@ -73,6 +73,7 @@
 		1119D091183E8A0500BC8C04 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit.h; sourceTree = "<group>"; };
 		1119D092183E8A0500BC8C04 /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit.m; sourceTree = "<group>"; };
 		1119D096183E918F00BC8C04 /* Model4to5.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model4to5.xcmappingmodel; sourceTree = "<group>"; };
+		1119D098183EC9C700BC8C04 /* test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = test.xcdatamodel; sourceTree = "<group>"; };
 		114E59AC183BDAC2008AF575 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		114E59AD183BE0BC008AF575 /* Measurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Measurement.h; sourceTree = "<group>"; };
 		114E59AE183BE0BC008AF575 /* Measurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Measurement.m; sourceTree = "<group>"; };
@@ -562,6 +563,7 @@
 			isa = XCVersionGroup;
 			children = (
 				1119D090183E89C200BC8C04 /* Model 5.xcdatamodel */,
+				1119D098183EC9C700BC8C04 /* test.xcdatamodel */,
 				114E59B8183BFD1D008AF575 /* Model 4.xcdatamodel */,
 				114E59AC183BDAC2008AF575 /* Model 2.xcdatamodel */,
 				110C7D6618391BEE0046EC1F /* Model.xcdatamodel */,

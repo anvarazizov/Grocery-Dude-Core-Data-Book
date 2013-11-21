@@ -88,14 +88,14 @@ NSString *storeFilename = @"Grocery-Dude.sqlite";
         return;
     } // don`t return store if loaded
     
-    BOOL useMigrationManager = YES;
+    BOOL useMigrationManager = NO;
     if (useMigrationManager && [self isMigrationNecessaryForStore:[self storeURL]]) {
         [self performBackgroundManagerMigrationForStore:[self storeURL]];
     } else {
        
         NSDictionary *options = @{
                                   NSMigratePersistentStoresAutomaticallyOption:@YES,
-                                  NSInferMappingModelAutomaticallyOption:@NO,
+                                  NSInferMappingModelAutomaticallyOption:@YES,
                                   NSSQLitePragmasOption: @{@"journal_mode": @"DELETE"}}; // видаляє зайві файли, які створюються разом з базою даних у iOS 7
         
         NSError *error = nil;
