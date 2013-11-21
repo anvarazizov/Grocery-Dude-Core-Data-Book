@@ -25,9 +25,12 @@
 		110C7D631838CEA60046EC1F /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 110C7D621838CEA60046EC1F /* CoreDataHelper.m */; };
 		110C7D6718391BEE0046EC1F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 110C7D6518391BEE0046EC1F /* Model.xcdatamodeld */; };
 		110C7D6A18392C830046EC1F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 110C7D6918392C830046EC1F /* Item.m */; };
+		1119D093183E8A0500BC8C04 /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1119D092183E8A0500BC8C04 /* Unit.m */; };
+		1119D097183E918F00BC8C04 /* Model4to5.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1119D096183E918F00BC8C04 /* Model4to5.xcmappingmodel */; };
 		114E59AF183BE0BC008AF575 /* Measurement.m in Sources */ = {isa = PBXBuildFile; fileRef = 114E59AE183BE0BC008AF575 /* Measurement.m */; };
 		114E59BB183BFD83008AF575 /* Amount.m in Sources */ = {isa = PBXBuildFile; fileRef = 114E59BA183BFD83008AF575 /* Amount.m */; };
 		114E59BD183BFE05008AF575 /* Model2ToModel4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 114E59BC183BFE05008AF575 /* Model2ToModel4.xcmappingmodel */; };
+		114E59C1183C06DE008AF575 /* MigrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 114E59C0183C06DE008AF575 /* MigrationVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,13 +69,19 @@
 		110C7D6618391BEE0046EC1F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		110C7D6818392C830046EC1F /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		110C7D6918392C830046EC1F /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		1119D090183E89C200BC8C04 /* Model 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 5.xcdatamodel"; sourceTree = "<group>"; };
+		1119D091183E8A0500BC8C04 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit.h; sourceTree = "<group>"; };
+		1119D092183E8A0500BC8C04 /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit.m; sourceTree = "<group>"; };
+		1119D096183E918F00BC8C04 /* Model4to5.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model4to5.xcmappingmodel; sourceTree = "<group>"; };
 		114E59AC183BDAC2008AF575 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		114E59AD183BE0BC008AF575 /* Measurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Measurement.h; sourceTree = "<group>"; };
 		114E59AE183BE0BC008AF575 /* Measurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Measurement.m; sourceTree = "<group>"; };
-		114E59B8183BFD1D008AF575 /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
+		114E59B8183BFD1D008AF575 /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
 		114E59B9183BFD83008AF575 /* Amount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Amount.h; sourceTree = "<group>"; };
 		114E59BA183BFD83008AF575 /* Amount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Amount.m; sourceTree = "<group>"; };
 		114E59BC183BFE05008AF575 /* Model2ToModel4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model2ToModel4.xcmappingmodel; sourceTree = "<group>"; };
+		114E59BF183C06DE008AF575 /* MigrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MigrationVC.h; sourceTree = "<group>"; };
+		114E59C0183C06DE008AF575 /* MigrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MigrationVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +143,7 @@
 		110C7D2F1838C8A00046EC1F /* Grocery Dude */ = {
 			isa = PBXGroup;
 			children = (
+				114E59BE183C06A4008AF575 /* Grocery Dude View Controllers */,
 				110C7D6418391B830046EC1F /* Data Model */,
 				110C7D601838CE570046EC1F /* Generic Core Data Classes */,
 				110C7D381838C8A00046EC1F /* AppDelegate.h */,
@@ -189,6 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				110C7D6518391BEE0046EC1F /* Model.xcdatamodeld */,
+				1119D091183E8A0500BC8C04 /* Unit.h */,
+				1119D092183E8A0500BC8C04 /* Unit.m */,
 				114E59B9183BFD83008AF575 /* Amount.h */,
 				114E59BA183BFD83008AF575 /* Amount.m */,
 				114E59AD183BE0BC008AF575 /* Measurement.h */,
@@ -196,8 +208,18 @@
 				110C7D6818392C830046EC1F /* Item.h */,
 				110C7D6918392C830046EC1F /* Item.m */,
 				114E59BC183BFE05008AF575 /* Model2ToModel4.xcmappingmodel */,
+				1119D096183E918F00BC8C04 /* Model4to5.xcmappingmodel */,
 			);
 			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		114E59BE183C06A4008AF575 /* Grocery Dude View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				114E59BF183C06DE008AF575 /* MigrationVC.h */,
+				114E59C0183C06DE008AF575 /* MigrationVC.m */,
+			);
+			name = "Grocery Dude View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,12 +325,15 @@
 				110C7D6A18392C830046EC1F /* Item.m in Sources */,
 				110C7D401838C8A00046EC1F /* ViewController.m in Sources */,
 				110C7D3A1838C8A00046EC1F /* AppDelegate.m in Sources */,
+				114E59C1183C06DE008AF575 /* MigrationVC.m in Sources */,
 				110C7D6718391BEE0046EC1F /* Model.xcdatamodeld in Sources */,
 				110C7D631838CEA60046EC1F /* CoreDataHelper.m in Sources */,
 				114E59AF183BE0BC008AF575 /* Measurement.m in Sources */,
 				110C7D361838C8A00046EC1F /* main.m in Sources */,
+				1119D093183E8A0500BC8C04 /* Unit.m in Sources */,
 				114E59BD183BFE05008AF575 /* Model2ToModel4.xcmappingmodel in Sources */,
 				114E59BB183BFD83008AF575 /* Amount.m in Sources */,
+				1119D097183E918F00BC8C04 /* Model4to5.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,11 +561,12 @@
 		110C7D6518391BEE0046EC1F /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				1119D090183E89C200BC8C04 /* Model 5.xcdatamodel */,
 				114E59B8183BFD1D008AF575 /* Model 4.xcdatamodel */,
 				114E59AC183BDAC2008AF575 /* Model 2.xcdatamodel */,
 				110C7D6618391BEE0046EC1F /* Model.xcdatamodel */,
 			);
-			currentVersion = 114E59B8183BFD1D008AF575 /* Model 4.xcdatamodel */;
+			currentVersion = 1119D090183E89C200BC8C04 /* Model 5.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

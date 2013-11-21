@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Item.h"
 #import "Amount.h"
+#import "Unit.h"
 
 @implementation AppDelegate
 
@@ -59,7 +60,7 @@
     }
     
     [self cdh];
-    [self demoMeasurementInsert];
+//    [self insertNumbers];
 }
 
 // метод для записування даних (об’єктів) в базу
@@ -71,11 +72,24 @@
     NSArray *newItemNames = [NSArray arrayWithObjects:@"Apple", @"Coffee", @"Cheese", nil];
     
     for (NSString *newItemName in newItemNames) {
-        Item *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:_coreDataHelper.context];
+        Unit *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:_coreDataHelper.context];
         newItem.name = newItemName;
         NSLog(@"Inserted New Managed Object: %@", newItem.name);
+        
     }
 }
+
+
+-(void)insertNumbers {
+    for (int i = 1; i < 1000; i++) {
+        Amount *new = [NSEntityDescription insertNewObjectForEntityForName:@"Amount" inManagedObjectContext:_coreDataHelper.context];
+                new.xyz = [NSString stringWithFormat:@"-->> LOTS OF TEST DATA: x%i", i];
+                NSLog(@"Inserted %@", new.xyz);
+            }
+    
+            [_coreDataHelper saveContext];
+}
+
 /*
 - (void)demo {
     
@@ -123,7 +137,7 @@
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
     
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Amount"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Unit"];
     [request setFetchLimit:10];
     
     NSError *error = nil;
@@ -132,8 +146,8 @@
     if (error) {
         NSLog(@"%@", error);
     } else {
-        for (Amount *amount in fetchedObjects) {
-            NSLog(@"Fetched object = %@", amount.xyz);
+        for (Unit *unit in fetchedObjects) {
+            NSLog(@"Fetched object = %@", unit.name);
         }
     }
     

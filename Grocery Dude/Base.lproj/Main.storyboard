@@ -67,6 +67,49 @@
             </objects>
             <point key="canvasLocation" x="895" y="66"/>
         </scene>
+        <!--MigrationVC-->
+        <scene sceneID="Hfz-ee-lgb">
+            <objects>
+                <viewController storyboardIdentifier="migration" id="Ggf-cP-a8Y" customClass="MigrationVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GOe-ug-0Tg"/>
+                        <viewControllerLayoutGuide type="bottom" id="K0G-jC-jjJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gtp-Nn-k0J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Migration progress 0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGS-Xy-faJ">
+                                <rect key="frame" x="20" y="240" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w8p-aq-xHe">
+                                <rect key="frame" x="20" y="283" width="280" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="w8p-aq-xHe" firstAttribute="centerY" secondItem="Gtp-Nn-k0J" secondAttribute="centerY" id="ZXa-Dk-6M6"/>
+                            <constraint firstAttribute="trailing" secondItem="IGS-Xy-faJ" secondAttribute="trailing" constant="20" symbolic="YES" id="eyP-zu-pxf"/>
+                            <constraint firstItem="w8p-aq-xHe" firstAttribute="trailing" secondItem="IGS-Xy-faJ" secondAttribute="trailing" id="hMh-4b-Afd"/>
+                            <constraint firstItem="IGS-Xy-faJ" firstAttribute="leading" secondItem="w8p-aq-xHe" secondAttribute="leading" id="oa4-gG-qPd"/>
+                            <constraint firstItem="IGS-Xy-faJ" firstAttribute="leading" secondItem="Gtp-Nn-k0J" secondAttribute="leading" constant="20" symbolic="YES" id="r37-yK-kjs"/>
+                            <constraint firstItem="w8p-aq-xHe" firstAttribute="top" secondItem="IGS-Xy-faJ" secondAttribute="bottom" constant="22" id="u42-IS-W5y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="IGS-Xy-faJ" id="6ZW-wa-aG5"/>
+                        <outlet property="progressView" destination="w8p-aq-xHe" id="dCt-d5-nqP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oPh-gM-naA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-141" y="-614"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="kPp-ww-fDt">
             <objects>
