@@ -60,14 +60,14 @@
     }
     
     [self cdh];
-    [self demo];
+    [self showUnitAndItemsCount];
 }
 
 -(void)demo {
     if (debug == 1) {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
-    
+   
     Unit *kg = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:[[self cdh] context]];
     Item *oranges = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:[[self cdh] context]];
     Item *bananas = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:[[self cdh] context]];
@@ -86,8 +86,37 @@
     NSLog(@"Inserted %@%@ %@", bananas.quantity, bananas.unit.name, bananas.name);
     
     [[self cdh] saveContext];
+    
 }
 
+- (void)showUnitAndItemsCount {
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    NSFetchRequest *items = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
+    
+    NSError *itemsError = nil;
+    NSArray *fetchedItems = [[[self cdh] context] executeFetchRequest:items error:&itemsError];
+    
+    if (!fetchedItems) {NSLog(@"%@", itemsError);}
+    else {
+            NSLog(@"Found %lu items(s) ", (unsigned long)[fetchedItems count]);
+    }
+    
+    NSFetchRequest *units = [NSFetchRequest fetchRequestWithEntityName:@"Unit"];
+    
+    NSError *unitsError = nil;
+    NSArray *fetchedUnits = [[[self cdh] context] executeFetchRequest:units error:&unitsError];
+    
+    if (!fetchedUnits) {NSLog(@"%@", unitsError);}
+    else {
+        NSLog(@"Found %lu unit(s) ", (unsigned long)[fetchedUnits count]);
+    }
+
+    
+    
+}
 // метод для записування даних (об’єктів) в базу
 - (void)insertDemo {
     if (debug == 1) {
