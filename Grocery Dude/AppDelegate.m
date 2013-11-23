@@ -83,7 +83,7 @@
     bananas.unit = kg;
     
     NSLog(@"Inserted %@%@ %@", oranges.quantity, oranges.unit.name, oranges.name);
-    NSLog(@"Inserted %@%@ %@", oranges.quantity, oranges.unit.name, oranges.name);
+    NSLog(@"Inserted %@%@ %@", bananas.quantity, bananas.unit.name, bananas.name);
     
     [[self cdh] saveContext];
 }
@@ -176,5 +176,5 @@
             NSLog(@"Fetched object = %@", unit.name);
         }
     }
-
+}
 @end
