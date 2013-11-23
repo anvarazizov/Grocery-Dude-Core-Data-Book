@@ -60,10 +60,32 @@
     }
     
     [self cdh];
+    [self demo];
 }
 
 -(void)demo {
-
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    Unit *kg = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:[[self cdh] context]];
+    Item *oranges = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:[[self cdh] context]];
+    Item *bananas = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:[[self cdh] context]];
+    
+    kg.name = @"Kg";
+    oranges.name = @"Oranges";
+    bananas.name = @"Bananas";
+    oranges.quantity = [NSNumber numberWithInt:1];
+    bananas.quantity = [NSNumber numberWithInt:4];
+    oranges.listed = [NSNumber numberWithBool:YES];
+    bananas.listed = [NSNumber numberWithBool:YES];
+    oranges.unit = kg;
+    bananas.unit = kg;
+    
+    NSLog(@"Inserted %@%@ %@", oranges.quantity, oranges.unit.name, oranges.name);
+    NSLog(@"Inserted %@%@ %@", oranges.quantity, oranges.unit.name, oranges.name);
+    
+    [[self cdh] saveContext];
 }
 
 // метод для записування даних (об’єктів) в базу
@@ -80,17 +102,6 @@
         NSLog(@"Inserted New Managed Object: %@", newItem.name);
         
     }
-}
-
-
--(void)insertAmounts {
-    for (int i = 1; i < 1000; i++) {
-        Amount *new = [NSEntityDescription insertNewObjectForEntityForName:@"Amount" inManagedObjectContext:_coreDataHelper.context];
-                new.xyz = [NSString stringWithFormat:@"-->> LOTS OF TEST DATA: x%i", i];
-                NSLog(@"Inserted %@", new.xyz);
-            }
-    
-            [_coreDataHelper saveContext];
 }
 
 -(void)insertUnits {
@@ -165,33 +176,5 @@
             NSLog(@"Fetched object = %@", unit.name);
         }
     }
-    
-    
-    
-//    for (int i = 1; i < 50000; i++) {
-//        Measurement *newMeasurement = [NSEntityDescription insertNewObjectForEntityForName:@"Measurement" inManagedObjectContext:_coreDataHelper.context];
-//        newMeasurement.abc = [NSString stringWithFormat:@"-->> LOTS OF TEST DATA: x%i", i];
-//        NSLog(@"Inserted %@", newMeasurement.abc);
-//    }
-//    
-//    [_coreDataHelper saveContext];
-}
-
-- (void)demoWithNumbers {
-    if (debug == 1) {
-        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
-    }
-    
-    NSLog(@"Integer 16 Range: %d to %d", INT16_MIN, INT16_MAX);
-    NSLog(@"Integer 32 Range: %d to %d", INT32_MIN, INT32_MAX);
-    NSLog(@"Integer 64 Range: %lld to %lld", INT64_MIN, INT64_MAX);
-    NSLog(@"Float Range = %f to %f", -FLT_MAX, FLT_MAX);
-    NSLog(@"Double Range = %f to %f", -DBL_MAX, DBL_MAX);
-    NSLog(@"Decimal Range = %@ to %@", [NSDecimalNumber minimumDecimalNumber], [NSDecimalNumber maximumDecimalNumber]);
-    
-    NSLog(@"    Float 1/3 = %@", [NSNumber numberWithFloat:1.0f/3]);
-    NSLog(@"    Double 1/3 = %@", [NSNumber numberWithDouble:1.0/3]);
-    NSLog(@"    Decimal 1/3 = %@", [[NSDecimalNumber one] decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"3"]]);
-}
 
 @end

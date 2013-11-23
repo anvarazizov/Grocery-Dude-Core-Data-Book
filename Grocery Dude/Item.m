@@ -2,7 +2,7 @@
 //  Item.m
 //  Grocery Dude
 //
-//  Created by Anvar Azizov on 2013-11-17.
+//  Created by Anvar Azizov on 2013-11-23.
 //  Copyright (c) 2013 Anvar Azizov. All rights reserved.
 //
 
@@ -11,10 +11,11 @@
 
 @implementation Item
 
-@dynamic name;
-@dynamic quantity;
-@dynamic photoData;
-@dynamic listed;
 @dynamic collected;
+@dynamic listed;
+@dynamic name;
+@dynamic photoData;
+@dynamic quantity;
+@dynamic unit;
 
 @end
