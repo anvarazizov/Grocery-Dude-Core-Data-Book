@@ -60,7 +60,7 @@
     }
     
     [self cdh];
-    [self showUnitAndItemsCount];
+    [self demo];
 }
 
 -(void)demo {
@@ -68,24 +68,20 @@
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
    
-    Unit *kg = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:[[self cdh] context]];
-    Item *oranges = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:[[self cdh] context]];
-    Item *bananas = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:[[self cdh] context]];
+    NSLog(@"Before deletion of the unit entity:");
+    [self showUnitAndItemsCount];
     
-    kg.name = @"Kg";
-    oranges.name = @"Oranges";
-    bananas.name = @"Bananas";
-    oranges.quantity = [NSNumber numberWithInt:1];
-    bananas.quantity = [NSNumber numberWithInt:4];
-    oranges.listed = [NSNumber numberWithBool:YES];
-    bananas.listed = [NSNumber numberWithBool:YES];
-    oranges.unit = kg;
-    bananas.unit = kg;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Unit"];
+    NSPredicate *filter = [NSPredicate predicateWithFormat:@"name == %@", @"Kg"];
+    [request setPredicate:filter];
+    NSArray *kgUnit = [[[self cdh] context] executeFetchRequest:request error:nil];
+    for (Unit *unit in kgUnit) {
+        [_coreDataHelper.context deleteObject:unit];
+        NSLog(@"A Kg unit object was deleted");
+    }
     
-    NSLog(@"Inserted %@%@ %@", oranges.quantity, oranges.unit.name, oranges.name);
-    NSLog(@"Inserted %@%@ %@", bananas.quantity, bananas.unit.name, bananas.name);
-    
-    [[self cdh] saveContext];
+    NSLog(@"After deletion of the unit entity:");
+    [self showUnitAndItemsCount];
     
 }
 
