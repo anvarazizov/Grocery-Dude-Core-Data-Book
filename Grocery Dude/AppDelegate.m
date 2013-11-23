@@ -74,15 +74,11 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Unit"];
     NSPredicate *filter = [NSPredicate predicateWithFormat:@"name == %@", @"Kg"];
     [request setPredicate:filter];
+    
     NSArray *kgUnit = [[[self cdh] context] executeFetchRequest:request error:nil];
     for (Unit *unit in kgUnit) {
-        NSError *error;
-        if ([unit validateForDelete:&error]) {
-            NSLog(@"Deleting: %@", unit.name);
-            [_coreDataHelper.context deleteObject:unit];
-        } else {
-            NSLog(@"Failed to delete %@, Error: %@", unit.name, error.localizedDescription);
-        }
+        [[[self cdh] context] deleteObject:unit];
+        NSLog(@"A Kg unit object was deleted");
     }
     
     NSLog(@"After deletion of the unit entity:");
@@ -209,4 +205,5 @@
         }
     }
 }
+
 @end

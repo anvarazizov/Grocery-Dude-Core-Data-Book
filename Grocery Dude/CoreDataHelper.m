@@ -137,6 +137,7 @@ NSString *storeFilename = @"Grocery-Dude.sqlite";
             NSLog(@"_context SAVED changes to persistent store");
         } else {
             NSLog(@"Failed to save _context: %@", error);
+            [self showValidationError:error];
         }
     } else {
         NSLog(@"SKIPPED _context save, there are no changes!");
@@ -281,6 +282,44 @@ NSString *storeFilename = @"Grocery-Dude.sqlite";
             });
         }
     });
+}
+
+#pragma mark - VALIDATION ERROR HANDLING
+
+-(void)showValidationError:(NSError *)anError {
+    if (anError && [anError.domain isEqualToString:@"NSCocoaErrorDomain"]) {
+        NSArray *errors = nil;
+        NSString *txt = @"";
+        
+        // Populate array with errors
+        if (anError.code == NSValidationMultipleErrorsError) {
+            errors = [anError.userInfo objectForKey:NSDetailedErrorsKey];
+        } else {
+            errors = [NSArray arrayWithObject:anError];
+        }
+        
+        // Display the errors
+        if (errors && errors.count > 0) {
+            for (NSError *error in errors){
+                NSString *entity = [[[error.userInfo objectForKey:@"NSValidationErrorObject"]entity]name];
+                
+                NSString *property = [error.userInfo objectForKey:@"NSValidationErrorKey"];
+                
+                switch (error.code) {
+                    case NSValidationRelationshipDeniedDeleteError:
+                        txt = [txt stringByAppendingFormat:@"%@ delete was denied bcs thr are assctd %@\n(Error Code %li)\n\n", entity, property, (long)error.code];
+                        break;
+                        
+                    default:
+                        txt = [txt stringByAppendingFormat:@"Unhandled error code %li in showValidationError method", (long)error.code];
+                        break;
+                }
+            }
+            // Display error txt message
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Validation error" message:[NSString stringWithFormat:@"%@ Please double-tap the home button and close this app by swiping it",txt ] delegate:nil cancelButtonTitle:nil otherButtonTitles:nil, nil];
+            [alertView show];
+        }
+    }
 }
 
 @end
