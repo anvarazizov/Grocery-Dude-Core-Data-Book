@@ -67,7 +67,7 @@
     if (debug == 1) {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
-   
+    
     NSLog(@"Before deletion of the unit entity:");
     [self showUnitAndItemsCount];
     
@@ -76,12 +76,19 @@
     [request setPredicate:filter];
     NSArray *kgUnit = [[[self cdh] context] executeFetchRequest:request error:nil];
     for (Unit *unit in kgUnit) {
-        [_coreDataHelper.context deleteObject:unit];
-        NSLog(@"A Kg unit object was deleted");
+        NSError *error;
+        if ([unit validateForDelete:&error]) {
+            NSLog(@"Deleting: %@", unit.name);
+            [_coreDataHelper.context deleteObject:unit];
+        } else {
+            NSLog(@"Failed to delete %@, Error: %@", unit.name, error.localizedDescription);
+        }
     }
     
     NSLog(@"After deletion of the unit entity:");
     [self showUnitAndItemsCount];
+    
+    [[self cdh] saveContext];
     
 }
 
