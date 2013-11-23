@@ -10,6 +10,7 @@
 #import "Item.h"
 #import "Amount.h"
 #import "Unit.h"
+#import "Word.h"
 
 @implementation AppDelegate
 
@@ -60,7 +61,6 @@
     }
     
     [self cdh];
-    [self demo];
 }
 
 -(void)demo {
@@ -99,6 +99,16 @@
         Unit *newUnit = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:_coreDataHelper.context];
         newUnit.name = [NSString stringWithFormat:@"-->> LOTS OF TEST DATA: x%i", i];
         NSLog(@"Inserted %@", newUnit.name);
+    }
+    
+    [_coreDataHelper saveContext];
+}
+
+-(void)insertWords {
+    for (int i = 1; i < 50000; i++) {
+        Word *newWord = [NSEntityDescription insertNewObjectForEntityForName:@"Word" inManagedObjectContext:_coreDataHelper.context];
+        newWord.ukr = [NSString stringWithFormat:@"-->> LOTS OF TEST DATA: x%i", i];
+        NSLog(@"Inserted %@", newWord.ukr);
     }
     
     [_coreDataHelper saveContext];

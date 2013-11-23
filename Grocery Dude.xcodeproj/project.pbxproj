@@ -31,6 +31,9 @@
 		114E59BB183BFD83008AF575 /* Amount.m in Sources */ = {isa = PBXBuildFile; fileRef = 114E59BA183BFD83008AF575 /* Amount.m */; };
 		114E59BD183BFE05008AF575 /* Model2ToModel4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 114E59BC183BFE05008AF575 /* Model2ToModel4.xcmappingmodel */; };
 		114E59C1183C06DE008AF575 /* MigrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 114E59C0183C06DE008AF575 /* MigrationVC.m */; };
+		11F57F2B1840D70500929388 /* Model5to6.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 11F57F2A1840D70500929388 /* Model5to6.xcmappingmodel */; };
+		11F57F2F1840D9C100929388 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F57F2E1840D9C100929388 /* Word.m */; };
+		11F57F311840D9E700929388 /* Model6to7.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 11F57F301840D9E700929388 /* Model6to7.xcmappingmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +72,7 @@
 		110C7D6618391BEE0046EC1F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		110C7D6818392C830046EC1F /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		110C7D6918392C830046EC1F /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
-		1119D090183E89C200BC8C04 /* Model 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 5.xcdatamodel"; sourceTree = "<group>"; };
+		1119D090183E89C200BC8C04 /* Model 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 5.xcdatamodel"; sourceTree = "<group>"; };
 		1119D091183E8A0500BC8C04 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit.h; sourceTree = "<group>"; };
 		1119D092183E8A0500BC8C04 /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit.m; sourceTree = "<group>"; };
 		1119D096183E918F00BC8C04 /* Model4to5.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model4to5.xcmappingmodel; sourceTree = "<group>"; };
@@ -83,6 +86,12 @@
 		114E59BC183BFE05008AF575 /* Model2ToModel4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model2ToModel4.xcmappingmodel; sourceTree = "<group>"; };
 		114E59BF183C06DE008AF575 /* MigrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MigrationVC.h; sourceTree = "<group>"; };
 		114E59C0183C06DE008AF575 /* MigrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MigrationVC.m; sourceTree = "<group>"; };
+		11F57F261840D61900929388 /* Model 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 6.xcdatamodel"; sourceTree = "<group>"; };
+		11F57F2A1840D70500929388 /* Model5to6.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model5to6.xcmappingmodel; sourceTree = "<group>"; };
+		11F57F2C1840D97300929388 /* Model 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 7.xcdatamodel"; sourceTree = "<group>"; };
+		11F57F2D1840D9C100929388 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		11F57F2E1840D9C100929388 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
+		11F57F301840D9E700929388 /* Model6to7.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model6to7.xcmappingmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +122,7 @@
 		110C7D1D1838C8A00046EC1F = {
 			isa = PBXGroup;
 			children = (
+				11F57F301840D9E700929388 /* Model6to7.xcmappingmodel */,
 				110C7D2F1838C8A00046EC1F /* Grocery Dude */,
 				110C7D4E1838C8A00046EC1F /* Grocery DudeTests */,
 				110C7D281838C8A00046EC1F /* Frameworks */,
@@ -200,6 +210,9 @@
 			isa = PBXGroup;
 			children = (
 				110C7D6518391BEE0046EC1F /* Model.xcdatamodeld */,
+				11F57F2D1840D9C100929388 /* Word.h */,
+				11F57F2E1840D9C100929388 /* Word.m */,
+				11F57F2A1840D70500929388 /* Model5to6.xcmappingmodel */,
 				1119D091183E8A0500BC8C04 /* Unit.h */,
 				1119D092183E8A0500BC8C04 /* Unit.m */,
 				114E59B9183BFD83008AF575 /* Amount.h */,
@@ -324,7 +337,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				110C7D6A18392C830046EC1F /* Item.m in Sources */,
+				11F57F311840D9E700929388 /* Model6to7.xcmappingmodel in Sources */,
 				110C7D401838C8A00046EC1F /* ViewController.m in Sources */,
+				11F57F2B1840D70500929388 /* Model5to6.xcmappingmodel in Sources */,
 				110C7D3A1838C8A00046EC1F /* AppDelegate.m in Sources */,
 				114E59C1183C06DE008AF575 /* MigrationVC.m in Sources */,
 				110C7D6718391BEE0046EC1F /* Model.xcdatamodeld in Sources */,
@@ -335,6 +350,7 @@
 				114E59BD183BFE05008AF575 /* Model2ToModel4.xcmappingmodel in Sources */,
 				114E59BB183BFD83008AF575 /* Amount.m in Sources */,
 				1119D097183E918F00BC8C04 /* Model4to5.xcmappingmodel in Sources */,
+				11F57F2F1840D9C100929388 /* Word.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +579,8 @@
 			isa = XCVersionGroup;
 			children = (
 				1119D090183E89C200BC8C04 /* Model 5.xcdatamodel */,
+				11F57F261840D61900929388 /* Model 6.xcdatamodel */,
+				11F57F2C1840D97300929388 /* Model 7.xcdatamodel */,
 				1119D098183EC9C700BC8C04 /* test.xcdatamodel */,
 				114E59B8183BFD1D008AF575 /* Model 4.xcdatamodel */,
 				114E59AC183BDAC2008AF575 /* Model 2.xcdatamodel */,
