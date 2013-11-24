@@ -62,7 +62,6 @@
     }
     
     [self cdh];
-    [self insertExample];
 }
 
 -(void)demo {
@@ -209,4 +208,22 @@
     }
 }
 
+-(void)deleteUnit {
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+
+    // створюємо екземпляр класу для витягнення даних з ім’ям Entity
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LocationAtShop"];
+    NSError *error = nil;
+    
+    // створюємо масив куди збираємо об’єкти з Entity
+    NSArray *fetchedObjects = [_coreDataHelper.context executeFetchRequest:request error:&error];
+    
+    for (LocationAtShop *loc in fetchedObjects) {
+    NSLog(@"Fetched Object = %@", loc.aisle);
+    [_coreDataHelper.context deleteObject:loc];
+    }
+    [_coreDataHelper saveContext];
+}
 @end

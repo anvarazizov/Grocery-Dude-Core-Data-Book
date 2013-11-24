@@ -23,13 +23,13 @@
     </entity>
     <entity name="Unit" representedClassName="Unit" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Item" inverseName="unit" inverseEntity="Item" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="unit" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
         <element name="Item" positionX="9" positionY="0" width="128" height="163"/>
-        <element name="Unit" positionX="232" positionY="0" width="128" height="73"/>
         <element name="Location" positionX="142" positionY="279" width="128" height="58"/>
         <element name="LocationAtHome" positionX="358" positionY="194" width="128" height="73"/>
         <element name="LocationAtShop" positionX="-144" positionY="108" width="128" height="73"/>
+        <element name="Unit" positionX="232" positionY="0" width="128" height="73"/>
     </elements>
 </model>
