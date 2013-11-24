@@ -1,5 +1,5 @@
 //
-//  Unit.h
+//  LocationAtShop.h
 //  Grocery Dude
 //
 //  Created by Anvar Azizov on 2013-11-23.
@@ -8,16 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "Location.h"
 
 @class Item;
 
-@interface Unit : NSManagedObject
+@interface LocationAtShop : Location
 
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * aisle;
 @property (nonatomic, retain) NSSet *items;
 @end
 
-@interface Unit (CoreDataGeneratedAccessors)
+@interface LocationAtShop (CoreDataGeneratedAccessors)
 
 - (void)addItemsObject:(Item *)value;
 - (void)removeItemsObject:(Item *)value;

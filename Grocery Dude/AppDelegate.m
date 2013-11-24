@@ -10,6 +10,8 @@
 #import "Item.h"
 #import "Amount.h"
 #import "Unit.h"
+#import "LocationAtShop.h"
+#import "LocationAtHome.h"
 
 @implementation AppDelegate
 
@@ -60,32 +62,13 @@
     }
     
     [self cdh];
-    [self demo];
+    [self insertExample];
 }
 
 -(void)demo {
     if (debug == 1) {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
-    
-    NSLog(@"Before deletion of the unit entity:");
-    [self showUnitAndItemsCount];
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Unit"];
-    NSPredicate *filter = [NSPredicate predicateWithFormat:@"name == %@", @"Kg"];
-    [request setPredicate:filter];
-    
-    NSArray *kgUnit = [[[self cdh] context] executeFetchRequest:request error:nil];
-    for (Unit *unit in kgUnit) {
-        [[[self cdh] context] deleteObject:unit];
-        NSLog(@"A Kg unit object was deleted");
-    }
-    
-    NSLog(@"After deletion of the unit entity:");
-    [self showUnitAndItemsCount];
-    
-    [[self cdh] saveContext];
-    
 }
 
 - (void)showUnitAndItemsCount {
@@ -132,12 +115,32 @@
     }
 }
 
--(void)insertUnits {
-    for (int i = 1; i < 5000; i++) {
-        Unit *newUnit = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:_coreDataHelper.context];
-        newUnit.name = [NSString stringWithFormat:@"-->> LOTS OF TEST DATA: x%i", i];
-        NSLog(@"Inserted %@", newUnit.name);
-    }
+-(void)insertExample {
+    
+    // створюємо 2 екземпляри класу Item: ручку та олівець
+    Item *pen = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:[[self cdh] context]];
+    Item *pencil = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:[[self cdh] context]];
+    
+    // створюємо екземпляр класу розташування в магазині
+    LocationAtShop *shopLocation = [NSEntityDescription insertNewObjectForEntityForName:@"LocationAtShop" inManagedObjectContext:[[self cdh] context]];
+    
+    // створюємо екземпляр класу розташування вдома
+    LocationAtHome *homeLocation = [NSEntityDescription insertNewObjectForEntityForName:@"LocationAtHome" inManagedObjectContext:[[self cdh] context]];
+    
+    // створюємо атрибути name для екземплярів класу Item
+    pen.name = [NSString stringWithFormat:@"Black pen"];
+    pencil.name = [NSString stringWithFormat:@"Green pencil"];
+    
+    // створюємо атрибути storedIn та aisle відповідно для екземплярів класів LocationAtHome та LocationAtShop
+    homeLocation.storedIn = [NSString stringWithFormat:@"Box"];
+    shopLocation.aisle = [NSString stringWithFormat:@"Aisle 4"];
+    
+    // говоримо програмі де саме розташовані екземпляри класу: вдома чи у крамниці
+    shopLocation.items = [[NSSet alloc] initWithObjects:pen, pencil, nil];
+    homeLocation.items = [[NSSet alloc] initWithObjects:pencil, nil];
+    
+    // виводимо в лог розташування предметів у локаціях
+    NSLog(@"At the %@ we can find a %@ and a %@. But in the %@ only %@ present, really, cause pen.locationAtHome.storedIn is null, look: %@", pen.locationAtShop.aisle, pen.name, pencil.name, pencil.locationAtHome.storedIn, pencil.name, pen.locationAtHome.storedIn);
     
     [_coreDataHelper saveContext];
 }
