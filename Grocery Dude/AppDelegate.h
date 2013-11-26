@@ -14,4 +14,6 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong, readonly) CoreDataHelper *coreDataHelper;
 
+-(CoreDataHelper *)cdh;
+
 @end

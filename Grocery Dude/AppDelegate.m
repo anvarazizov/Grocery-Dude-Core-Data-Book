@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "Item.h"
-#import "Amount.h"
 #import "Unit.h"
 #import "LocationAtShop.h"
 #import "LocationAtHome.h"
@@ -21,9 +20,13 @@
     if (debug == 1) {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
-    
+    // створюємо екземпляр класу лише один раз
     if (!_coreDataHelper) {
-        _coreDataHelper = [CoreDataHelper new];
+        static dispatch_once_t predicate;
+        dispatch_once(&predicate, ^{
+            _coreDataHelper = [CoreDataHelper new];
+        });
+        
         [_coreDataHelper setupCoreData];
     }
     return _coreDataHelper;
@@ -61,13 +64,44 @@
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
     
-    [self cdh];
+//    [self cdh];
+    [self demo];
 }
 
 -(void)demo {
     if (debug == 1) {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
+    
+    CoreDataHelper *cdh = [self cdh];
+    NSArray *homeLocations = [NSArray arrayWithObjects:@"Fruit Bowl", @"Pantry", @"Nursery", @"Bathroom", @"Fridge", nil];
+    
+    NSArray *shopLocations = [NSArray arrayWithObjects:@"Produce", @"Aisle 1", @"Aisle 2", @"Aisle 3", @"Deli", nil];
+    
+    NSArray *unitNames = [NSArray arrayWithObjects:@"g", @"pkt", @"box", @"ml", @"kg", nil];
+    
+    NSArray *itemNames = [NSArray arrayWithObjects:@"Grapes", @"Biscuits", @"Nappies", @"Shampoo", @"Potatoes", nil];
+    
+    int i = 0;
+    
+    for (NSString *itemName in itemNames) {
+        LocationAtHome *locationAtHome = [NSEntityDescription insertNewObjectForEntityForName:@"LocationAtHome" inManagedObjectContext:cdh.context];
+        LocationAtShop *locationAtShop = [NSEntityDescription insertNewObjectForEntityForName:@"LocationAtShop" inManagedObjectContext:cdh.context];
+        Unit *unit = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:cdh.context];
+        Item *item = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:cdh.context];
+        
+        locationAtHome.storedIn = [homeLocations objectAtIndex:i];
+        locationAtShop.aisle = [shopLocations objectAtIndex:i];
+        unit.name = [unitNames objectAtIndex:i];
+        item.name = [itemNames objectAtIndex:i];
+        
+        item.locationAtHome = locationAtHome;
+        item.locationAtShop = locationAtShop;
+        item.unit = unit;
+        
+        i++;
+    }
+    [cdh saveContext];
 }
 
 - (void)showUnitAndItemsCount {
